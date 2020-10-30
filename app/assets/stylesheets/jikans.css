@@ -1,0 +1,17 @@
+.left_bar{
+width: 20vw;
+height: 100vh;
+background-color: rgba(0, 0, 255, 0.164);
+padding: 10px 0 0 10px;
+}
+.member{
+}
+
+.right_bar{
+  width: 80vw;
+  background-color: cornsilk;
+}
+
+.main{
+  display: flex;
+}

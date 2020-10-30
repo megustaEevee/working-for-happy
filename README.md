@@ -35,11 +35,11 @@ Rails 6.0.0 mysql utf8
 
 ### Association
 
-- has_many :times
+- has_many :jikans
 - has_many :wages
 - has_many :comments
 
-## times テーブル
+## jikans テーブル
 
 | Column     | Type       | Options           |
 | ---------- | ---------- | ----------------- |
@@ -63,7 +63,7 @@ Rails 6.0.0 mysql utf8
 ### Association
 
 - belongs_to :user
-- has_one    :time
+- has_one    :jikan
 
 ## comments テーブル
 | Column | Type       | Options           |
@@ -74,4 +74,4 @@ Rails 6.0.0 mysql utf8
 ### Association
 
 - belongs_to :user
-- belongs_to :time
+- belongs_to :jikan
