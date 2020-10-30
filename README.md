@@ -17,7 +17,7 @@ working-for-happy
 # DEMO(gifで動画や写真を貼って、ビューのイメージを掴んでもらいます)
 
 # 工夫したポイント
-devise導入後、Emailではなくnameを用いたログイン機能を実装
+devise導入後、Emailではなくusernameを用いたログイン機能を実装
 # 使用技術(開発環境)
 Rails 6.0.0 mysql utf8
 # 課題や今後実装したい機能
@@ -27,11 +27,11 @@ Rails 6.0.0 mysql utf8
 
 # DB設計
 
-## members テーブル
+## users テーブル
 
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
-| name     | string | null: false |
+| username | string | null: false |
 
 ### Association
 
@@ -44,11 +44,11 @@ Rails 6.0.0 mysql utf8
 | Column     | Type       | Options           |
 | ---------- | ---------- | ----------------- |
 | start_time | integer    | null: false       |
-| member     | references | foreign_key: true |
+| user       | references | foreign_key: true |
 
 ### Association
 
-- belongs_to :member
+- belongs_to :user
 - has_one    :wage
 - has_many   :comments
 
@@ -58,20 +58,20 @@ Rails 6.0.0 mysql utf8
 | -------- | ---------- | ----------------- |
 | end_time | integer    | null: false       |
 | paying   | integer    | null: false       |
-| member   | references | foreign_key: true |
+| user     | references | foreign_key: true |
 
 ### Association
 
-- belongs_to :member
+- belongs_to :user
 - has_one    :time
 
 ## comments テーブル
 | Column | Type       | Options           |
 | ------ | ---------- | ----------------- |
 | text   | text       | null: false       |
-| member | references | foreign_key: true |
+| user   | references | foreign_key: true |
 
 ### Association
 
-- belongs_to :member
+- belongs_to :user
 - belongs_to :time
