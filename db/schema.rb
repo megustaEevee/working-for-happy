@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_30_062321) do
+ActiveRecord::Schema.define(version: 2020_10_31_062854) do
 
   create_table "jikans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "start_time", null: false
@@ -34,5 +34,18 @@ ActiveRecord::Schema.define(version: 2020_10_30_062321) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  create_table "wages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "end_time", null: false
+    t.integer "paying", null: false
+    t.bigint "user_id"
+    t.bigint "jikan_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["jikan_id"], name: "index_wages_on_jikan_id"
+    t.index ["user_id"], name: "index_wages_on_user_id"
+  end
+
   add_foreign_key "jikans", "users"
+  add_foreign_key "wages", "jikans"
+  add_foreign_key "wages", "users"
 end

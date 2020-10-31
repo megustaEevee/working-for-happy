@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :jikans
+  has_many :wages
 
   validates :username, presence: true, uniqueness: true
   validates :email, uniqueness: true

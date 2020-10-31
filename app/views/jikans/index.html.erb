@@ -5,7 +5,7 @@
     
     <div class="log_in">
       <% if user_signed_in? %>
-        <%= link_to current_user.username, "#", class: "username" %>
+        <%= link_to current_user.username, user_path(id: current_user.id), class: "username" %>
         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
       <% else %>
         <%= link_to "新規登録", new_user_registration_path, class: "login" %>
@@ -23,8 +23,8 @@
     </div>
 
     <div calss="member">
-      <% @user.each do |n| %>
-        <%= link_to n.username, "#", class: "member" %> 
+      <% @users.each do |n| %>
+        <%= link_to n.username, user_path(id: n.id), class: "member" %> 
       <% end %>
     </div>
   </div>

@@ -1,0 +1,29 @@
+<div class="main">
+
+  <div class="left_bar">
+    <h2>鬼滅隊</h2>
+    
+    <div class="log_in">
+        <%= link_to current_user.username, user_path(id: current_user.id), class: "username" %>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
+    </div>
+
+  </div>
+
+  <div class="right_bar">
+    <H2><%= "#{@user.username}さんのページ" %></h2>
+    <div class="time">
+      <%= @time %>
+      <% if @wages %>
+        <div calss="wage">
+          <% @user.wages.each do |w| %>
+            <%= "#{w.created_at.strftime('%Y/%m/%d')}" %>
+            <%= "#{w.paying}円" %>
+            <%= "#{w.end_time}時間" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>

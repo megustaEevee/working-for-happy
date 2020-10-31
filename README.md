@@ -59,17 +59,19 @@ Rails 6.0.0 mysql utf8
 | end_time | integer    | null: false       |
 | paying   | integer    | null: false       |
 | user     | references | foreign_key: true |
+| jikan    | references | foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_one    :jikan
+- belongs_to :jikan
 
 ## comments テーブル
 | Column | Type       | Options           |
 | ------ | ---------- | ----------------- |
 | text   | text       | null: false       |
 | user   | references | foreign_key: true |
+| jikan  | references | foreign_key: true |
 
 ### Association
 

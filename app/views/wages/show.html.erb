@@ -1,0 +1,23 @@
+<div class="main">
+
+  <div class="left_bar">
+    <h2>鬼滅隊</h2>
+    
+    <div class="log_in">
+        <%= link_to current_user.username, user_path(id: current_user.id), class: "username" %>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
+    </div>
+
+  </div>
+
+  <div class="right_bar">
+    <H2>お疲れ様でした</h2>
+    <div class="time">
+      <%= @time %>
+    </div>
+    <div class="paying">
+      <%= "本日の賃金は#{@wage.paying}円です"%>
+    </div>
+  </div>
+
+</div>
