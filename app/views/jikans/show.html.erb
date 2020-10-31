@@ -17,19 +17,16 @@
     <%= form_with model: @jikan, local: true do |j| %>
       <%= j.hidden_field :start_time, value: "#{@time.hour}" %>
         <% if user_signed_in? %>
-          <%= j.submit "出勤する", class: "in" %>
+          <%= j.submit "退社する", class: "out" %>
         <% end %>
       <% end %>
     </div>
 
-    <div calss="member">
-      <% @user.each do |n| %>
-        <%= link_to n.username, "#", class: "member" %> 
-      <% end %>
-    </div>
   </div>
 
   <div class="right_bar">
+  <H2>今日も1日がんばりましょう</h2>
+
     <div class="time">
       <%= @time %>
     </div>

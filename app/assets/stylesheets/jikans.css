@@ -2,14 +2,65 @@
 width: 20vw;
 height: 100vh;
 background-color: rgba(0, 0, 255, 0.164);
-padding: 10px 0 0 10px;
+display: inline-block;
 }
+
+h2{
+  color: brown;
+  text-align: center;
+}
+
+.log_in{
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.username{
+  color: blue;
+  margin: 10px;
+}
+
+.logout{
+  margin: 10px;
+}
+
+.sign-up{
+  margin: 10px;
+}
+
+.login{
+  margin: 10px;
+}
+
+.dakoku{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.in{
+  display: flex;
+}
+
 .member{
+  color: red;
+}
+
+a{
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
 }
 
 .right_bar{
   width: 80vw;
   background-color: cornsilk;
+}
+
+.time{
+  padding: 20px;
 }
 
 .main{
