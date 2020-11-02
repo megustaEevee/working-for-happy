@@ -13,6 +13,8 @@ class WagesController < ApplicationController
     end
   end
 
+  private
+
   def wage_params
     params.require(:wage ).permit(:end_time, :paying).merge(user_id: current_user.id, jikan_id: params[:jikan_id])
   end

@@ -1,13 +1,22 @@
 .left_bar{
 width: 20vw;
 height: 100vh;
-background-color: rgba(0, 0, 255, 0.164);
+background-image: url("p_kimetu.png");
 display: inline-block;
 }
 
 h2{
-  color: brown;
+  color: maroon;
   text-align: center;
+}
+
+h1{
+  color: maroon;
+  text-align: center;
+  text-shadow:1px 1px 0 #FFF, -1px -1px 0 #FFF,
+  -1px 1px 0 #FFF, 1px -1px 0 #FFF,
+  0px 1px 0 #FFF,  0-1px 0 #FFF,
+  -1px 0 0 #FFF, 1px 0 0 #FFF;
 }
 
 .log_in{
@@ -20,18 +29,36 @@ h2{
 .username{
   color: blue;
   margin: 10px;
+  font-size: 20px;
+  text-shadow:1px 1px 0 #FFF, -1px -1px 0 #FFF,
+  -1px 1px 0 #FFF, 1px -1px 0 #FFF,
+  0px 1px 0 #FFF,  0-1px 0 #FFF,
+  -1px 0 0 #FFF, 1px 0 0 #FFF;
 }
 
 .logout{
   margin: 10px;
+  font-size: 20px;
+  text-shadow:1px 1px 0 #FFF, -1px -1px 0 #FFF,
+  -1px 1px 0 #FFF, 1px -1px 0 #FFF,
+  0px 1px 0 #FFF,  0-1px 0 #FFF,
+  -1px 0 0 #FFF, 1px 0 0 #FFF;
 }
 
 .sign-up{
   margin: 10px;
+  text-shadow:1px 1px 0 #FFF, -1px -1px 0 #FFF,
+  -1px 1px 0 #FFF, 1px -1px 0 #FFF,
+  0px 1px 0 #FFF,  0-1px 0 #FFF,
+  -1px 0 0 #FFF, 1px 0 0 #FFF;
 }
 
 .login{
   margin: 10px;
+  text-shadow:1px 1px 0 #FFF, -1px -1px 0 #FFF,
+  -1px 1px 0 #FFF, 1px -1px 0 #FFF,
+  0px 1px 0 #FFF,  0-1px 0 #FFF,
+  -1px 0 0 #FFF, 1px 0 0 #FFF;
 }
 
 .dakoku{
@@ -41,7 +68,12 @@ h2{
 }
 
 .member{
-  color: red;
+  color: black;
+  font-size: 22px;
+  text-shadow:1px 1px 0 #FFF, -1px -1px 0 #FFF,
+  -1px 1px 0 #FFF, 1px -1px 0 #FFF,
+  0px 1px 0 #FFF,  0-1px 0 #FFF,
+  -1px 0 0 #FFF, 1px 0 0 #FFF;
 }
 
 a{
@@ -52,7 +84,7 @@ a{
 
 .right_bar{
   width: 80vw;
-  background-color: cornsilk;
+  background-image: url("y_kimetu.png");
 }
 
 .time{
@@ -69,5 +101,9 @@ a{
 .paying{
   color: blue;
   font-size: 20px;
+  padding: 20px;
+}
+
+.Message{
   padding: 20px;
 }

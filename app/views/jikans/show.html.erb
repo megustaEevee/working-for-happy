@@ -1,20 +1,19 @@
 <div class="main">
 
   <div class="left_bar">
-    <h2>鬼滅隊</h2>
+    <h1>精鋭部隊</h1>
     
     <div class="log_in">
-        <%= link_to current_user.username, user_path(id: current_user.id), class: "username" %>
-        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
+      <%= link_to current_user.username, user_path(id: current_user.id), class: "username" %>
     </div>
 
     <div class="dakoku">
       <%= form_with model: [@jikan,@wage], local: true do |j| %>
         <%= j.hidden_field :end_time, value: "#{ @end_time }" %>
         <%= j.hidden_field :paying, value: "#{ @paying }" %>
-          <% if current_user == @jikan.user %>
-            <%= j.submit "退社する", class: "out" %>
-          <% end %>
+        <% if current_user == @jikan.user && @last_day == @today && @jikan.wage == nil %>
+          <%= j.submit "退社する", class: "out" %>
+        <% end %>
       <% end %>
     </div>
 
@@ -24,6 +23,8 @@
     <H2>今日も1日がんばりましょう</h2>
     <div class="time">
       <%= @time %>
+    </div>
+    <div id="Message" class="Message">
     </div>
   </div>
 

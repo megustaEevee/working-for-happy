@@ -1,20 +1,23 @@
 <div class="main">
 
   <div class="left_bar">
-    <h2>鬼滅隊</h2>
+    <h1>精鋭部隊</h1>
     
     <div class="log_in">
         <%= link_to current_user.username, user_path(id: current_user.id), class: "username" %>
         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
     </div>
-
+    <%= link_to 'topへ戻る', root_path %>
+    <%if @last_day == @today && @wage == nil %>
+      <%= link_to '仕事に戻る', jikan_path(@jikan.id) %>
+    <%end%>
   </div>
-
+ 
   <div class="right_bar">
     <H2><%= "#{@user.username}さんのページ" %></h2>
     <div class="time">
       <%= @time %>
-      <% if @wages %>
+      <% if @user.wages %>
         <div calss="wage">
           <% @user.wages.each do |w| %>
             <%= "#{w.created_at.strftime('%Y/%m/%d')}" %>

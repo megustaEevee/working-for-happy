@@ -1,7 +1,7 @@
 <div class="main">
 
   <div class="left_bar">
-    <h2>鬼滅隊</h2>
+    <h1>精鋭部隊</h1>
     
     <div class="log_in">
       <% if user_signed_in? %>
@@ -16,10 +16,12 @@
     <div class="dakoku">
     <%= form_with model: @jikan, local: true do |j| %>
       <%= j.hidden_field :start_time, value: "#{@time.hour}" %>
-        <% if user_signed_in? %>
+      <% if user_signed_in? %>
+        <% if @last_day != @today || @last_day == nil %>
           <%= j.submit "出勤する", class: "in" %>
         <% end %>
       <% end %>
+    <% end %>
     </div>
 
     <div calss="member">

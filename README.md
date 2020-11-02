@@ -32,6 +32,9 @@ Rails 6.0.0 mysql utf8
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
 | username | string | null: false |
+| email    | string | null: false |
+| password | string | null: false |
+
 
 ### Association
 
