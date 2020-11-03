@@ -15,10 +15,15 @@ class JikansController < ApplicationController
 
   def show
     @jikan = Jikan.find(params[:id])
+
     @last_day = "#{@jikan.created_at.strftime('%Y/%m/%d')}"
-    @end_time = @time.hour - @jikan.start_time
+    @end_time = @time.hour - @jikan.start_time - 1
     @paying = @end_time * 1012 #横浜市最低賃金（令和2年10月1日）
+
     @wage = Wage.new
+
+    @comment = Comment.new
+    @comments = @jikan.comments
   end
 
   def create

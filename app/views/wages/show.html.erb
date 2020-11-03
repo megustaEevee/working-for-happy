@@ -12,8 +12,10 @@
 
   <div class="right_bar">
     <H2>お疲れ様でした</h2>
-    <div class="time">
-      <%= @time %>
+    <div id="day" class="day">
+      <%= "#{@time.year}年#{@time.month}月#{@time.day}日" %>
+      <div id="time" class="time">
+      </div>
     </div>
     <div class="paying">
       <%= "本日の賃金は#{@wage.paying}円です"%>

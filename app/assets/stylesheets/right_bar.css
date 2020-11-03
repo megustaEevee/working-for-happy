@@ -1,0 +1,28 @@
+.right_bar{
+  width: 80vw;
+  background-image: url("y_kimetu.png");
+}
+
+.day{
+  padding: 20px;
+  display: flex;
+}
+
+.time{
+  padding-left: 20px;
+}
+
+.wage{
+  padding-left: 20px;
+  color: blue;
+}
+
+.paying{
+  color: blue;
+  font-size: 20px;
+  padding: 20px;
+}
+
+.Message{
+  padding: 20px;
+}

@@ -3,7 +3,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @jikan = Jikan.order(id: :DESC).find_by(user_id: current_user.id)
+    @wages = Wage.order(id: :DESC).where(user_id: @user.id)
+    @jikan = Jikan.order(id: :DESC).find_by(user_id: @user.id)
+    @comment = Comment.new
+    @comments = Comment.order(id: :DESC).where(user_id: @user.id)
     
     if @jikan
       @last_day = "#{@jikan.created_at.strftime('%Y/%m/%d')}"
