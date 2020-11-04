@@ -14,9 +14,9 @@ function MessageTimer(){
 
   let ListMessage = new Array(
     { time:"9" ,message:"出勤時間です"},
-    { time:"12" ,message:"12時から13時はお昼休みです。60分間休憩しましょう。休憩中の賃金は発生しません"},
+    { time:"12" ,message:"12時から13時はお昼休みです。60分間休憩しましょう。休憩中の賃金は発生しません。"},
     { time:"18" ,
-    message:"勤務時間終了です。残業を希望する方は上司に連絡してください。残業に入る前に15分間の休憩を取ってください。休憩中の賃金は発生しません"}
+    message:"勤務時間終了です。残業を希望する方は上司に連絡してください。"}
   );
 
   for(var i=0; i < ListMessage.length; i++){
