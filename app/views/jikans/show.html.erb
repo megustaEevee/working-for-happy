@@ -11,16 +11,16 @@
       <%= form_with model: [@jikan,@wage], local: true do |j| %>
         <%= j.hidden_field :end_time, value: "#{ @end_time }" %>
         <%= j.hidden_field :paying, value: "#{ @paying }" %>
-        <% if current_user == @jikan.user && @last_day == @today && @jikan.wage == nil %>
+        <% if current_user == @jikan.user && @jikan.wage == nil %>
           <%= j.submit "退社する", class: "out" %>
         <% end %>
       <% end %>
     </div>
 
-    <% unless @comments %>
+    <% if @comments == [] && current_user.id == @jikan.user.id %>
       <div class="comment-box">
         <%= form_with model: [@jikan,@comment] do |c| %>
-          <%= c.text_area :text, placeholder: "入力してください", class: "comment-text" %>
+          <%= c.text_area :text, placeholder: "残業理由を入力してください", class: "comment-text" %>
           <%= c.submit '残業申請', id: "comment-btn", class: "comment-btn" %>
         <% end %>
       </div>
@@ -28,7 +28,7 @@
     <% if current_user.id == 1 %>
       <div class="comment-box">
         <%= form_with model: [@jikan,@comment] do |c| %>
-          <%= c.text_area :text, placeholder: "入力してください", class: "comment-text" %>
+          <%= c.text_area :text, placeholder: "コメントを入力してください", class: "comment-text" %>
           <%= c.submit '残業申請', id: "comment-btn", class: "comment-btn" %>
         <% end %>
       </div>
