@@ -3,12 +3,9 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     if @comment.valid?
       @comment.save
-      ActionCable.server.broadcast 'comment_channel', content: @comment
       redirect_to work_path(@comment.work.id)
     else
-      @work = @comment.work
-      @comments = @work.comments
-      render "works/show"
+      redirect_to work_path(@comment.work.id)
     end
   end
 
