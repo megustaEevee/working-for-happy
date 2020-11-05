@@ -21,7 +21,14 @@ https://working-for-happy.herokuapp.com/</a><br>
 | 労働の対価を視覚化する | 労働者のモチベーションアップと最低賃金法違反を防ぐ  | 賃金計算機能 |
 
 # DEMO
-![demo](画像やGIFのURL/raw)
+- topページ
+![demo](https://gyazo.com/b680668f5d0da775286e6042e3b5501b/raw)
+- 仕事中ページ
+![demo](https://gyazo.com/6654c0e71dea32f0fcea15fa2e717fc2/raw)
+- 勤務終了
+![demo](https://gyazo.com/579efc397a4939f72a3437fd7ec8cd91/raw)
+- 個人ページ
+![demo](https://gyazo.com/33beed78b3fab7b1eeed490f2e1b6bdb/raw)
 
 # 工夫したポイント
 - 打刻のしやすさ：submitをクリックするだけで完了する
@@ -101,4 +108,4 @@ Rails 6.0.0 mysql utf8
 - belongs_to :user
 - belongs_to :work
 
-![demo](画像やGIFのURL)
+![demo](https://gyazo.com/712c794397ae3392650f4008d0b68517/raw)
