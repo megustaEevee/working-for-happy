@@ -1,8 +1,6 @@
 .left_bar{
-width: 20vw;
+width: 30vw;
 height: 100vh;
-background-image: url("p_kimetu.png");
-background-color: pink;
 display: inline-block;
 }
 

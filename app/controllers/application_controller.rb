@@ -5,13 +5,16 @@ class ApplicationController < ActionController::Base
   private
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username ])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
+  end
+
+  def after_sign_out_path_for(resource)
+    new_user_session_path
   end
 
   def basic_auth
     authenticate_or_request_with_http_basic do |username, password|
-      username == ENV["BASIC_AUTH_USER"] && password == ENV["BASIC_AUTH_PASSWORD"]
+      username == ENV['BASIC_AUTH_USER'] && password == ENV['BASIC_AUTH_PASSWORD']
     end
   end
-
 end

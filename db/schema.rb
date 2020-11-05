@@ -10,24 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_02_140513) do
+ActiveRecord::Schema.define(version: 2020_11_04_074353) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "text", null: false
     t.bigint "user_id"
-    t.bigint "jikan_id"
+    t.bigint "work_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["jikan_id"], name: "index_comments_on_jikan_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
-  create_table "jikans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "start_time", null: false
-    t.bigint "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_jikans_on_user_id"
+    t.index ["work_id"], name: "index_comments_on_work_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -48,16 +40,24 @@ ActiveRecord::Schema.define(version: 2020_11_02_140513) do
     t.integer "end_time", null: false
     t.integer "paying", null: false
     t.bigint "user_id"
-    t.bigint "jikan_id"
+    t.bigint "work_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["jikan_id"], name: "index_wages_on_jikan_id"
     t.index ["user_id"], name: "index_wages_on_user_id"
+    t.index ["work_id"], name: "index_wages_on_work_id"
   end
 
-  add_foreign_key "comments", "jikans"
+  create_table "works", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "start_time", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_works_on_user_id"
+  end
+
   add_foreign_key "comments", "users"
-  add_foreign_key "jikans", "users"
-  add_foreign_key "wages", "jikans"
+  add_foreign_key "comments", "works"
   add_foreign_key "wages", "users"
+  add_foreign_key "wages", "works"
+  add_foreign_key "works", "users"
 end

@@ -1,5 +1,9 @@
+html, body{
+}
+
 .main{
   display: flex;
+  background-image: url("p_kimetu.png");
 }
 
 h1{

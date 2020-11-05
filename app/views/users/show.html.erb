@@ -9,7 +9,7 @@
     </div>
       <%= link_to 'topへ戻る', root_path %>
       <%if @last_day == @today && @wage == nil %>
-        <%= link_to '仕事中', jikan_path(@jikan.id) %>
+        <%= link_to '仕事中', work_path(@work.id) %>
       <%end%>
   </div>
 
@@ -36,7 +36,7 @@
           <p>
             <%= "#{c.created_at.strftime('%Y/%m/%d')}" %><br>
             <% if @user.id == 1 %>
-              <%= "#{c.jikan.user.username}さんへ"%><br>
+              <%= "#{c.work.user.username}さんへ"%><br>
             <% end %>
             <%= "#{c.user.username}:"%>
             <%= c.text %>

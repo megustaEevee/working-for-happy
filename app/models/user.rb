@@ -1,10 +1,12 @@
 class User < ApplicationRecord
-  has_many :jikans
+  has_many :works
   has_many :wages
   has_many :comments
 
-  validates :username, presence: true, uniqueness: true
-  validates :email, uniqueness: true
+  with_options presence: true, uniqueness: true do
+    validates :username
+    validates :email
+  end
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

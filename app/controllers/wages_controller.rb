@@ -8,15 +8,12 @@ class WagesController < ApplicationController
 
   def create
     @wage = Wage.new(wage_params)
-    if @wage.save
-      redirect_to jikan_wage_path(id: @wage.id)
-    end
+    redirect_to work_wage_path(id: @wage.id) if @wage.save
   end
 
   private
 
   def wage_params
-    params.require(:wage ).permit(:end_time, :paying).merge(user_id: current_user.id, jikan_id: params[:jikan_id])
+    params.require(:wage).permit(:end_time, :paying).merge(user_id: current_user.id, work_id: params[:work_id])
   end
-
 end

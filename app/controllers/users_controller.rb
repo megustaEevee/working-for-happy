@@ -4,25 +4,19 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @wages = Wage.order(id: :DESC).where(user_id: @user.id)
-    @jikan = Jikan.order(id: :DESC).find_by(user_id: @user.id)
-    @comment = Comment.new
+    @work = Work.order(id: :DESC).find_by(user_id: @user.id)
     @comments = Comment.order(id: :DESC).where(user_id: @user.id)
-    
-    if @jikan
-      @last_day = "#{@jikan.created_at.strftime('%Y/%m/%d')}"
-    end
+
+    @last_day = @work.created_at.strftime('%Y/%m/%d').to_s if @work
 
     @time = Time.now
-    if @time.day < 10
-      day = "0#{@time.day}"
-    else
-      day = "#{@time.day}"
-    end
+    day = if @time.day < 10
+            "0#{@time.day}"
+          else
+            @time.day.to_s
+          end
     @today = "#{@time.year}/#{@time.month}/#{day}"
-  
-    if @user.wages != []
-      @wage = @user.wages.find_by(jikan_id: @jikan.id)
-    end
-  end
 
+    @wage = @user.wages.find_by(work_id: @work.id) if @user.wages != []
+  end
 end

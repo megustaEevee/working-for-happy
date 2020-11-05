@@ -1,8 +1,9 @@
 class Wage < ApplicationRecord
   belongs_to :user
-  belongs_to :jikan
+  belongs_to :work
 
-  validates :end_time, presence: true
-  validates :paying, presence: true
-
+  with_options presence: true do
+    validates :end_time
+    validates :paying
+  end
 end
