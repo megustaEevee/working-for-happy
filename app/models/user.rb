@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :wages
   has_many :comments
 
-  with_options presence: true, uniqueness: true do
+  with_options presence: true do
     validates :username
     validates :email
   end
