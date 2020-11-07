@@ -39,7 +39,7 @@ https://working-for-happy.herokuapp.com/</a><br>
 - 個人ページで、労働日、労働時間、賃金、自分が発信したコメントを確認できる
 
 # 使用技術(開発環境)
-Rails 6.0.0 mysql utf8
+Ruby 2.6.5 Rails 6.0.0 mysql2 0.4.4 utf8
 
 # 課題や今後実装したい機能
 - 賃金の計算：時間単位になっているので、分単位で計算できるようにする
