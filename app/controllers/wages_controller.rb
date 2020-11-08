@@ -13,7 +13,7 @@ class WagesController < ApplicationController
     else
       @work = Work.find(params[:work_id])
       @comment = Comment.new
-      render "works/show"
+      render 'works/show'
     end
   end
 

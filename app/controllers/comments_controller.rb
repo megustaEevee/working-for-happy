@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-
   def create
     @comment = Comment.new(comment_params)
     if @comment.valid?
@@ -9,7 +8,7 @@ class CommentsController < ApplicationController
       @time = Time.now
       @work = @comment.work
       @wage = Wage.new
-      render "works/show"
+      render 'works/show'
     end
   end
 
