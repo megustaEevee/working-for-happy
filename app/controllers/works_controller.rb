@@ -18,8 +18,8 @@ class WorksController < ApplicationController
     @work = Work.find(params[:id])
 
     @last_day = @work.created_at.strftime('%Y/%m/%d').to_s
-    @end_time = @time.hour - @work.start_time - 1
-    @paying = @end_time * 1012 # 横浜市最低賃金（令和2年10月1日）
+    @end_time = @time.hour - @work.start_time
+    @paying = @end_time * 1012 - 1012 # 横浜市最低賃金（令和2年10月1日）
 
     @comment = Comment.new
     @comments = @work.comments

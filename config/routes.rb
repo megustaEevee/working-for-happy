@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'comments/new'
-  mount ActionCable.server => '/cable'
-
   devise_for :users
   root to: "works#index"
 

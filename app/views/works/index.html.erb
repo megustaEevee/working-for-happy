@@ -15,7 +15,8 @@
 
     <div class="dakoku">
       <%= form_with model: @work, local: true do |j| %>
-        <%= j.hidden_field :start_time, value: "#{@time.hour}" %>
+        <%= render "/devise/shared/error_messages", model: j.object %>
+        <%= j.hidden_field :start_time, value: @time.hour %>
         <% if user_signed_in? %>
           <% if @last_day != @today || @last_day == nil %>
             <%= j.submit "出勤する", class: "in" %>

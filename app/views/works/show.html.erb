@@ -10,8 +10,9 @@
     <% if current_user == @work.user && @work.wage == nil %>
       <div class="dakoku">
         <%= form_with model: [@work,@wage], local: true do |j| %>
-          <%= j.hidden_field :end_time, value: "#{ @end_time }" %>
-          <%= j.hidden_field :paying, value: "#{ @paying }" %>
+          <%= render "/devise/shared/error_messages", model: j.object %>
+          <%= j.hidden_field :end_time, value: @end_time %>
+          <%= j.hidden_field :paying, value: @paying %>
           <%= j.submit "退社する", class: "out" %>
         <% end %>
       </div>
