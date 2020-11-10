@@ -2,7 +2,7 @@
 
   <div class="left_bar">
     <h1>精鋭部隊</h1>
-    
+
     <div class="log_in">
       <% if user_signed_in? %>
         <%= link_to current_user.username, user_path(id: current_user.id), class: "username" %>
@@ -18,8 +18,11 @@
         <%= render "/devise/shared/error_messages", model: j.object %>
         <%= j.hidden_field :start_time, value: @time.hour %>
         <% if user_signed_in? %>
-          <% if @last_day != @today || @last_day == nil %>
+          <% if @work_last == nil %>
             <%= j.submit "出勤する", class: "in" %>
+          <% elsif @work_last.wage != nil && @work_last.id == @work_last.wage.work_id %>
+            <%= j.submit "出勤する", class: "in" %>
+          <% else%>
           <% end %>
         <% end %>
       <% end %>
@@ -37,6 +40,8 @@
       <%= "#{@time.year}年#{@time.month}月#{@time.day}日" %>
       <div id="time" class="time">
       </div>
+    </div>
+    <div id="Message" class="Message">
     </div>
   </div>
 

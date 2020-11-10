@@ -2,13 +2,13 @@
 
   <div class="left_bar">
     <h1>精鋭部隊</h1>
-    
+
     <div class="log_in">
         <%= link_to current_user.username, user_path(id: current_user.id), class: "username" %>
         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
     </div>
       <%= link_to 'topへ戻る', root_path %>
-      <%if @last_day == @today && @wage == nil %>
+      <%if @wage == nil && @work != nil %>
         <%= link_to '仕事中', work_path(@work.id) %>
       <%end%>
   </div>

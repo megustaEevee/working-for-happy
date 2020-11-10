@@ -12,13 +12,17 @@
         <%= form_with model: [@work,@wage], local: true do |j| %>
           <%= render "/devise/shared/error_messages", model: j.object %>
           <%= j.hidden_field :end_time, value: @end_time %>
-          <%= j.hidden_field :paying, value: @paying %>
+          <% if @end_time > 6 %>
+            <%= j.hidden_field :paying, value: @paying - 1012 %>
+          <% else %>
+            <%= j.hidden_field :paying, value: @paying %>
+          <% end %>
           <%= j.submit "退社する", class: "out" %>
         <% end %>
       </div>
     <% end %>
 
-    <% if current_user.id == @work.user.id %>
+    <% if current_user == @work.user %>
       <div class="comment-box">
         <%= form_with model: [@work,@comment], local: true do |c| %>
           <%= render "/devise/shared/error_messages", model: c.object %>
