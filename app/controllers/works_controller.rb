@@ -64,15 +64,17 @@ class WorksController < ApplicationController
       time_hour += 24
     else
       start_time = @work.start_time
-      time_hour = @time.hour
+      time_hour
     end
 
     @l_time = if start_time >= 22 && time_hour <= 29 # 深夜勤務時間の計算
                 time_hour - start_time
               elsif start_time >= 22 && time_hour > 29
                 29 - start_time
-              elsif time_hour >= 22
-                time_hour - 21
+              elsif start_time < 22 && time_hour > 29
+                7
+              elsif start_time < 22 && time_hour <= 29
+                time_hour - 22
               else
                 0
               end
@@ -94,7 +96,7 @@ class WorksController < ApplicationController
         if d_time >= @o_time # 最大でも7時間
           d_pay = @o_time * @fifty
           l_pay = (@l_time - @o_time) * @twenty_five
-          o_pay = 0 # @o_time - @o_timeは0
+          o_pay = 0
           n_pay = (@end_time - @l_time) * @mini_wage
         else
           d_pay = d_time * @fifty
