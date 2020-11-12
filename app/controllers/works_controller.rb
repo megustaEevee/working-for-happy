@@ -89,9 +89,9 @@ class WorksController < ApplicationController
         @o_pay = (@o_time - @l_time) * @twenty_five
         @n_pay = 8 * @mini_wage
         @paying = @n_pay + @o_pay + @l_pay
-      elsif @start_time > 14 && @start_time < 22 # 深夜の途中から超過勤務の場合
-        @d_time = 22 - @start_time
-        if @d_time >= @o_time # 最大でも7時間
+      elsif @start_time > 14 && @start_time < 21 # 深夜の途中から超過勤務の場合
+        @d_time = 21 - @start_time
+        if @d_time >= @o_time # 最大でも6時間
           @d_pay = @o_time * @fifty
           @l_pay = (@l_time - @o_time) * @twenty_five
           @o_pay = 0
