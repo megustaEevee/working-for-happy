@@ -21,13 +21,18 @@
       </div>
     </div>
     <% if @user.wages %>
+      <% @month = 0 %>
       <% @wages.each do |w| %>
         <div class="wage">
           <%= "#{w.created_at.strftime('%Y/%m/%d')}" %>
           <%= "#{w.end_time}時間" %>
           <%= "#{w.paying}円" %>
         </div>
+        <% @month += w.paying %>
       <% end %>
+      <div class="sum">
+        <%= "月合計 #{@month}円"%>
+      </div>
     <% end %>
 
     <% if @comments %>

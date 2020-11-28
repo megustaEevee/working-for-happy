@@ -26,8 +26,8 @@
       <div class="comment-box">
         <%= form_with model: [@work,@comment], local: true do |c| %>
           <%= render "/devise/shared/error_messages", model: c.object %>
-          <%= c.text_area :text, placeholder: "残業理由を入力してください", class: "comment-text", id: "comment_text" %>
-          <%= c.submit '残業申請', id: "comment-btn", class: "comment-btn" %>
+          <%= c.text_area :text, placeholder: "残業理由を入力してください", class: "comment-text", id: "comment_text1" %>
+          <%= c.submit '残業申請', id: "comment-btn1", class: "comment-btn" %>
         <% end %>
       </div>
     <% end %>
@@ -36,8 +36,8 @@
       <div class="comment-box">
         <%= form_with model: [@work,@comment], local: true do |c| %>
           <%= render "/devise/shared/error_messages", model: c.object %>
-          <%= c.text_area :text, placeholder: "コメントを入力してください", class: "comment-text", id: "comment_text" %>
-          <%= c.submit '残業要請', id: "comment-btn", class: "comment-btn" %>
+          <%= c.text_area :text, placeholder: "コメントを入力してください", class: "comment-text", id: "comment_text2" %>
+          <%= c.submit '残業要請', id: "comment-btn2", class: "comment-btn" %>
         <% end %>
       </div>
     <% end %>

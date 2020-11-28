@@ -1,3 +1,4 @@
+if(document.URL.match(/works/)){
 function MessageTimer(){
   let myTime = new Date();
   let myHours = myTime.getHours();
@@ -28,3 +29,4 @@ function MessageTimer(){
   return 0;
 }
 setInterval(MessageTimer, 1000);
+};
